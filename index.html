@@ -37,7 +37,7 @@
     <div>
       <b>EIT Details:</b> </br>First Name: {{eit.fname}}</br> Last Name: {{eit.lname}} </br> DOB:{{eit.dob | date}}
       </br>Gender:{{eit.gender}}
-      <br> Full Name: {{eit.getFullName() }} </br> Age: {{eit.getAge(dob) }}
+      <br> Full Name: {{eit.getFullName() }} </br> Age: {{ eit.dob ? eit.getAge(dob) : ''}}
     </div>
   </div>
 </body>
