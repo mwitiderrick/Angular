@@ -18,26 +18,26 @@
     <b>EIT Details:</b>
     <div>
       First Name:
-      <input type="text" min="0" ng-model="fname">
+      <input type="text" min="0" ng-model="eit.fname">
     </div>
 
     <div>
       Last Name:
-      <input type="text" min="0" ng-model="lname">
+      <input type="text" min="0" ng-model="eit.lname">
     </div>
 
     <div>
       DOB:
-      <input type="date" min="0" ng-model="dob">
+      <input type="date" min="0" ng-model="eit.dob">
     </div>
     <div>
       Gender:
-      <input type="text" min="0" ng-model="gender">
+      <input type="text" min="0" ng-model="eit.gender">
     </div>
     <div>
-      <b>EIT Details:</b> </br>First Name: {{fname}}</br> Last Name: {{lname}} </br> DOB:{{dob | date}}
-      </br>Gender:{{}}
-      <br> Full Name: {{getFullName(fname,lname) }} </br> Age: {{eit.getAge(dob) }}
+      <b>EIT Details:</b> </br>First Name: {{eit.fname}}</br> Last Name: {{eit.lname}} </br> DOB:{{eit.dob | date}}
+      </br>Gender:{{eit.gender}}
+      <br> Full Name: {{eit.getFullName() }} </br> Age: {{eit.getAge(dob) }}
     </div>
   </div>
 </body>
