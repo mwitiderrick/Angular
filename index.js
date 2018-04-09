@@ -1,7 +1,7 @@
 (function(angular) {
   'use strict';
-angular.module('eits', [])
-  .controller('EitController', function EitController() {
+angular.module('eits', ['EIT'])
+  .controller('EitController', ['EitService',function EitController(EitService) {
   this.cy = new Date();
   this.fname;
   this.lname;
@@ -13,7 +13,7 @@ angular.module('eits', [])
       this.months = Math.floor((this.mil % 3.154e+10) / 2.628e+9);
      
 
-      return this.years + 'year(s)  ' + this.months + 'months(s)';
+      return this.years + 'yea(rs)  ' + this.months + 'months(s)';
 
     };
     
@@ -23,6 +23,16 @@ angular.module('eits', [])
 
     };
    
-  });
+   this.addEit = function addEit(){
+     return EitService.addEit(this.fname, this.lname);
+   };
+
+  this.getEits = function getEits(){
+
+    return EitService.eits;
+
+    };
+
+  }]);
 })(window.angular);
 

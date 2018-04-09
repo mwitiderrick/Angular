@@ -8,6 +8,7 @@
 
   <script src="http://code.angularjs.org/snapshot/angular.min.js"></script>
   <script src="index.js"></script>
+  <script src="eitservice.js"></script>
 
 
 
@@ -15,7 +16,7 @@
 
 <body>
 <div ng-app="eits" ng-controller="EitController as eit">
-    <b>EIT Details:</b>
+    <b>Edit EIT Details:</b>
     <div>
       First Name:
       <input type="text" min="0" ng-model="eit.fname">
@@ -33,12 +34,19 @@
     <div>
       Gender:
       <input type="text" min="0" ng-model="eit.gender">
+     <p> <button  ng-click="eit.addEit()">Add Eit</button></p>
     </div>
+
+    <hr>
     <div>
       <b>EIT Details:</b> </br>First Name: {{eit.fname}}</br> Last Name: {{eit.lname}} </br> DOB:{{eit.dob | date}}
       </br>Gender:{{eit.gender}}
       <br> Full Name: {{eit.getFullName() }} </br> Age: {{ eit.dob ? eit.getAge(dob) : ''}}
     </div>
+    <hr> 
+    <div>List All EITs</div>
+    <ul ng-repeat="eit in eit.getEits()">{{eit.firstName}} {{eit.lastName}}</ul>
+
   </div>
 </body>
 
