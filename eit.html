@@ -14,6 +14,11 @@
 
 <body>
   <div ng-app>
+     <div>
+      <b>EIT Details:</b> </br>First Name: {{fname}}</br> Last Name: {{lname}} </br> DOB:{{dob | date}} </br>Gender:{{gender}}
+      <br> Full Name: {{ fname + lname}} </br> Age: {{ dob ? 2018 - (dob | date:"y") : ''}}
+    </div>
+    <hr>
     <b>EIT Details:</b>
     <div>
       First Name:
@@ -33,10 +38,7 @@
       Gender:
       <input type="text" min="0" ng-model="gender">
     </div>
-    <div>
-      <b>EIT Details:</b> </br>First Name: {{fname}}</br> Last Name: {{lname}} </br> DOB:{{dob | date}} </br>Gender:{{gender}}
-      <br> Full Name: {{ fname + lname}} </br> Age: {{ dob ? 2018 - (dob | date:"y") : ''}}
-    </div>
+   
   </div>
 </body>
 

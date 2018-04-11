@@ -3,8 +3,15 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>Example - example-guide-concepts-1-production</title>
+  <title>EIT Website</title>
 
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
 
   <script src="http://code.angularjs.org/snapshot/angular.min.js"></script>
   <script src="index.js"></script>
@@ -15,39 +22,71 @@
 </head>
 
 <body>
-<div ng-app="eits" ng-controller="EitController as eit">
-    <b>Edit EIT Details:</b>
-    <div>
-      First Name:
-      <input type="text" min="0" ng-model="eit.fname">
+  <div class="container">
+<div ng-app="eits" ng-controller="ListController as eits">
+    <div><b>List All EITs</b></div>
+    
+    <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">First</th>
+      <th scope="col">Last</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-repeat="eit in eits.getEits()">
+      <th scope="row"></th>
+      <td>{{eit.firstName}}</td>
+      <td>{{eit.lastName}} </td>
+     <td ><a href=""><div ng-controller="DetailsController as detailsctrl">
+      <span  class="glyphicon glyphicon-eye-open" ng-click="detailsctrl.getEit(eit.id)"></span></div>
+    </a></td>
+
+     <td><a href=""><span class="glyphicon glyphicon-pencil"></span></a></td>
+    </tr>
+   
+    
+  </tbody>
+</table>
+
+  <hr>
+  <div ng-controller="DetailsController as detailsctrl">
+      <b>EIT Details:</b>
+       <p>First Name: {{detailsctrl.eit().firstName}}</p> 
+      <p>Last Name: {{detailsctrl.eit().lastName}} </p>
+      <p> DOB:{{detailsctrl.eit().dob | date}}</p>
+      <p>Gender:{{detailsctrl.eit().gender}}</p>
+      </p>Age: {{ detailsctrl.eit().dob ? detailsctrl.eit.getAge(dob) : ''}}</p>
     </div>
 
-    <div>
-      Last Name:
-      <input type="text" min="0" ng-model="eit.lname">
-    </div>
-
-    <div>
-      DOB:
-      <input type="date" min="0" ng-model="eit.dob">
-    </div>
-    <div>
-      Gender:
-      <input type="text" min="0" ng-model="eit.gender">
-     <p> <button  ng-click="eit.addEit()">Add Eit</button></p>
-    </div>
-
-    <hr>
-    <div>
-      <b>EIT Details:</b> </br>First Name: {{eit.fname}}</br> Last Name: {{eit.lname}} </br> DOB:{{eit.dob | date}}
-      </br>Gender:{{eit.gender}}
-      <br> Full Name: {{eit.getFullName() }} </br> Age: {{ eit.dob ? eit.getAge(dob) : ''}}
-    </div>
     <hr> 
-    <div>List All EITs</div>
-    <ul ng-repeat="eit in eit.getEits()">{{eit.firstName}} {{eit.lastName}}</ul>
 
-  </div>
+    <div ng-controller="EitController as addingEit">
+    <b>Add New EIT:</b>
+    <div class="form form-group">
+      First Name:
+      <input value="Derrick" class="form-control" type="text" min="0" ng-model="addingEit.fname">
+    </div>
+
+    <div class="form form-group">
+      Last Name:
+      <input value="Mwiti" class="form-control" type="text" min="0" ng-model="addingEit.lname">
+    </div>
+
+    <div class="form form-group">
+      DOB:
+      <input class="form-control" type="date" min="0" ng-model="addingEit.dob">
+    </div>
+    <div class="form form-group">
+      Gender:
+      <input value="Male" class="form-control" type="text" min="0" ng-model="addingEit.gender">
+      </div>
+     <button class="btn btn-primary" ng-click="addingEit.addEit()">Add Eit</button>
+     <button  class="btn btn-primary" ng-click="addingEit.editEit()">Edit Eit</button>
+    </div>
+</div>
+    
 </body>
 
 </html>
