@@ -5,7 +5,7 @@ angular.module('EIT', [])
 	var counter = 0;
 
 	var addEit = function(firstName, lastName,dob,gender) {
-
+		
 	eits.push({id:counter,firstName,lastName,dob,gender});
 	counter = counter + 1;
 	console.log(eits)

@@ -44,9 +44,11 @@ angular.module('eits', ['EIT'])
     this.fname;
     this.lname;
     this.dob;
-    this.addEdit = function addEit(){
+
+    this.addEit = function addEit(){
        return EitService.addEit(this.fname, this.lname, this.dob, this.gender);
      };
+
 }]);
 
 

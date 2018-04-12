@@ -16,17 +16,12 @@
   <script src="http://code.angularjs.org/snapshot/angular.min.js"></script>
   <script src="index.js"></script>
   <script src="eitservice.js"></script>
-
-
-
 </head>
-
 <body>
-  <div class="container">
-<div ng-app="eits" ng-controller="ListController as eits">
-    <div><b>List All EITs</b></div>
-    
-    <table class="table">
+<div ng-app="eits"  class="container">
+<div ng-controller="ListController as eits">
+  <b>List All EITs</b>
+  <table class="table">
   <thead>
     <tr>
       <th scope="col">#</th>
@@ -42,15 +37,14 @@
      <td ><a href=""><div ng-controller="DetailsController as detailsctrl">
       <span  class="glyphicon glyphicon-eye-open" ng-click="detailsctrl.getEit(eit.id)"></span></div>
     </a></td>
-
      <td><a href=""><span class="glyphicon glyphicon-pencil"></span></a></td>
     </tr>
-   
-    
   </tbody>
 </table>
+</div>
 
   <hr>
+
   <div ng-controller="DetailsController as detailsctrl">
       <b>EIT Details:</b>
        <p>First Name: {{detailsctrl.eit().firstName}}</p> 
@@ -58,20 +52,20 @@
       <p> DOB:{{detailsctrl.eit().dob | date}}</p>
       <p>Gender:{{detailsctrl.eit().gender}}</p>
       </p>Age: {{ detailsctrl.eit().dob ? detailsctrl.eit.getAge(dob) : ''}}</p>
-    </div>
+  </div>
 
-    <hr> 
+  <hr> 
 
-    <div ng-controller="EitController as addingEit">
+    <div ng-controller="AddEditController as addingEit">
     <b>Add New EIT:</b>
     <div class="form form-group">
       First Name:
-      <input value="Derrick" class="form-control" type="text" min="0" ng-model="addingEit.fname">
+      <input class="form-control" type="text" min="0" ng-model="addingEit.fname">
     </div>
 
     <div class="form form-group">
       Last Name:
-      <input value="Mwiti" class="form-control" type="text" min="0" ng-model="addingEit.lname">
+      <input  class="form-control" type="text" min="0" ng-model="addingEit.lname">
     </div>
 
     <div class="form form-group">
@@ -80,13 +74,13 @@
     </div>
     <div class="form form-group">
       Gender:
-      <input value="Male" class="form-control" type="text" min="0" ng-model="addingEit.gender">
+      <input  class="form-control" type="text" min="0" ng-model="addingEit.gender">
       </div>
      <button class="btn btn-primary" ng-click="addingEit.addEit()">Add Eit</button>
      <button  class="btn btn-primary" ng-click="addingEit.editEit()">Edit Eit</button>
     </div>
-</div>
-    
-</body>
 
+  </div>
+
+</body>
 </html>
