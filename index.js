@@ -31,7 +31,6 @@ angular.module('eits', ['EIT'])
 }]).controller('DetailsController',['EitService',
   function DetailsController(EitService) { 
     this.getEit = function(id){
-      console.log(id);
       this.eit =  EitService.getEit(id);
 
     };
@@ -47,6 +46,11 @@ angular.module('eits', ['EIT'])
 
     this.addEit = function addEit(){
        return EitService.addEit(this.fname, this.lname, this.dob, this.gender);
+     };
+
+    this.editEit = function editEit(id){
+       return EitService.editEit(id);
+
      };
 
 }]);

@@ -5,7 +5,7 @@ angular.module('EIT', [])
 	var counter = 0;
 
 	var addEit = function(firstName, lastName,dob,gender) {
-		
+
 	eits.push({id:counter,firstName,lastName,dob,gender});
 	counter = counter + 1;
 	console.log(eits)
@@ -19,6 +19,14 @@ angular.module('EIT', [])
 	
 	};
 
+	var editEit = function(id){
+	var e = eits.find(eit => eit.id === id);
+	setCurrentEit(e);
+	return e;
+	console.log(e);
+	
+	}; 
+
 	var setCurrentEit = function(eit){
 		currentEit = eit;
 	};
@@ -28,6 +36,7 @@ angular.module('EIT', [])
 	};
 
 	return {
+	editEit:editEit,
 	setCurrentEit:setCurrentEit,
 	getCurrentEit:getCurrentEit,
 	addEit: addEit,
